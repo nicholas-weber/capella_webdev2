@@ -6,7 +6,6 @@ function findPhotos() {
 
     document.querySelector('head').appendChild(script);
     // getToken();
-    boardSearch(); 
 
     PDK.init({
         appId: "5056103943636043675", // Change this
@@ -31,11 +30,13 @@ function findPhotos() {
           //  alert('success');
             console.log(PDK.getSession().accessToken);
 
-            var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
-            console.log(yahoo);
-            PDK.logout();
+            // var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
+            // console.log(yahoo);
+            // PDK.logout();
       }
     });
+
+    boardSearch();
 }
 
 function jsonFlickrFeed(data) {
