@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="geolocator.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body onload="onLoad()">
+    <span id="nav"></span>
+    <main>
+        <div id="locations">
+            <p>
+                Type your radius (in miles) to receive a list of nearby electronics stores. Click on a store to receive
+                driving directions from your location.
+            </p>
+            <div id="geo-search">
+                <label>Radius</label>
+                <input name="radius" id="radius" type="text">
+                <button onclick="getLocation()">&#128269;</button>
+            </div>
+            <table id="storeList">
+            </table>
+            <ul id="directionsList">
+
+            </ul>
+        </div>
+        <div id="map"></div>
+    </main>
+    <script src="location.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByu-oeCjygAuDWU9muzepjmRRTGovSg7E&libraries=places"></script>
+</body>
+
+</html>

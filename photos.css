@@ -1,0 +1,28 @@
+p {
+    margin-top: 0;
+}
+
+#photo-search {
+    display: flex;
+}
+
+#photo-search label {
+    margin-right: .5rem;
+}
+
+#photo-search input {
+    height: 25px;
+    margin-bottom: 1.5rem;
+}
+
+#photo-search button {
+    height: 25px;
+    border-radius: 0;
+    border: 1px solid lightgray;
+    border-left: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

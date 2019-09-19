@@ -1,0 +1,48 @@
+p {
+    margin-top: 0;
+}
+
+#geo-search {
+    display: flex;
+}
+
+#geo-search label {
+    margin-right: .5rem;
+}
+
+#geo-search input {
+    height: 25px;
+    margin-bottom: 1.5rem;
+}
+
+#geo-search button {
+    height: 25px;
+    border-radius: 0;
+    border: 1px solid lightgray;
+    border-left: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: .5rem;
+}
+
+td {
+    text-align: center;
+}
+
+ul {
+    margin-bottom: 0;
+}
