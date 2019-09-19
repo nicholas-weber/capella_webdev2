@@ -29,7 +29,7 @@ function jsonFlickrFeed(data) {
 
 function boardSearch() {
     var boards = [];
-    PDK.request('/me/boards/', function (response) { // Make sure to change the board_id
+    PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
         console.log(response);
         if (!response || response.error) {
             alert('Error occurred');
