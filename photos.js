@@ -7,6 +7,11 @@ function findPhotos() {
     document.querySelector('head').appendChild(script);
     // getToken();
     boardSearch(); 
+
+    PDK.init({
+        appId: "5056103943636043675", // Change this
+        cookie: true
+    });
     
     PDK.login({ scope : 'read_relationships,read_public' }, function(response){
         if (!response || response.error) {
@@ -14,6 +19,22 @@ function findPhotos() {
         } else {
            console.log(JSON.stringify(response));
         }
+    });
+
+    //get board info
+    var pins = [];
+    PDK.request('/v1/me/', function (response) {
+      if (!response || response.error) {
+        //alert('Error occurred');
+      } else {
+        console.log(JSON.stringify(response));
+          //  alert('success');
+            console.log(PDK.getSession().accessToken);
+
+            var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
+            console.log(yahoo);
+            PDK.logout();
+      }
     });
 }
 
