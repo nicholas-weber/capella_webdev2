@@ -20,18 +20,18 @@ function findPhotos() {
         }
     });
 
-    var boards = [];
-    PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
-        console.log(response);
-        if (!response || response.error) {
-            alert('Error occurred');
-        } else {
-            boards = boards.concat(response.data);
-            if (response.hasNext) {
-                response.next(); // this will recursively go to this same callback
-            }
-        }
-    });
+    // var boards = [];
+    // PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
+    //     console.log(response);
+    //     if (!response || response.error) {
+    //         alert('Error occurred');
+    //     } else {
+    //         boards = boards.concat(response.data);
+    //         if (response.hasNext) {
+    //             response.next(); // this will recursively go to this same callback
+    //         }
+    //     }
+    // });
 
     //get board info
     var pins = [];
