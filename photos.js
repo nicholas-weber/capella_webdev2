@@ -20,36 +20,6 @@ function findPhotos() {
         }
     });
 
-    //get board info
-    // var pins = [];
-    // PDK.request('/v1/me/', function (response) {
-    //   if (!response || response.error) {
-    //     //alert('Error occurred');
-    //   } else {
-    //     console.log(JSON.stringify(response));
-    //       //  alert('success');
-    //         console.log(PDK.getSession().accessToken);
-
-    //         // var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
-    //         // console.log(yahoo);
-    //         // PDK.logout();
-    //   }
-    // });
-
-    boardSearch();
-}
-
-function jsonFlickrFeed(data) {
-    var image = "";
-    data.items.forEach(function (element) {
-        image += `<img src=" ${element.media.m} "/>`
-    });
-
-    document.getElementById("flikr").innerHTML = image;
-}
-
-
-function boardSearch() {
     var boards = [];
     PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
         console.log(response);
@@ -62,7 +32,50 @@ function boardSearch() {
             }
         }
     });
+
+    //get board info
+    var pins = [];
+    PDK.request('/v1/me/', function (response) {
+      if (!response || response.error) {
+        alert('Error occurred');
+      } else {
+        console.log(JSON.stringify(response));
+           alert('success');
+            console.log(PDK.getSession().accessToken);
+
+            var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
+            console.log(yahoo);
+            // PDK.logout();
+      }
+    });
+
+    // boardSearch();
 }
+
+function jsonFlickrFeed(data) {
+    var image = "";
+    data.items.forEach(function (element) {
+        image += `<img src=" ${element.media.m} "/>`
+    });
+
+    document.getElementById("flikr").innerHTML = image;
+}
+
+
+// function boardSearch() {
+//     var boards = [];
+//     PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
+//         console.log(response);
+//         if (!response || response.error) {
+//             alert('Error occurred');
+//         } else {
+//             boards = boards.concat(response.data);
+//             if (response.hasNext) {
+//                 response.next(); // this will recursively go to this same callback
+//             }
+//         }
+//     });
+// }
 
 // function getToken() {
 //     fetch('https://api.pinterest.com/oauth/?esponse_type=code&redirect_uri=https://nikkoweber.github.io/capella_web_application_dev2/photos.html&client_id=5056103943636043675&scope=read_public,write_public&state=768uyFys')
