@@ -5,7 +5,8 @@ function findPhotos() {
         + document.getElementById("parameters").value;
 
     document.querySelector('head').appendChild(script);
-    boardSearch();
+    getToken();
+    // boardSearch();
 }
 
 function jsonFlickrFeed(data) {
@@ -17,19 +18,29 @@ function jsonFlickrFeed(data) {
     document.getElementById("flikr").innerHTML = image;
 }
 
-function boardSearch() {
-    var boards = [];
-    PDK.request('/me/boards/', function (response) { // Make sure to change the board_id
-        console.log(response);
-        if (!response || response.error) {
-            alert('Error occurred');
-        } else {
-            boards = boards.concat(response.data);
-            if (response.hasNext) {
-                response.next(); // this will recursively go to this same callback
-            }
-        }
-    });
+// function boardSearch() {
+//     var boards = [];
+//     PDK.request('/me/boards/', function (response) { // Make sure to change the board_id
+//         console.log(response);
+//         if (!response || response.error) {
+//             alert('Error occurred');
+//         } else {
+//             boards = boards.concat(response.data);
+//             if (response.hasNext) {
+//                 response.next(); // this will recursively go to this same callback
+//             }
+//         }
+//     });
+// }
+
+function getToken() {
+    fetch('https://api.pinterest.com/oauth/?esponse_type=code&redirect_uri=https://nikkoweber.github.io/capella_web_application_dev2/photos.html&client_id=5056103943636043675&scope=read_public,write_public&state=768uyFys')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (myJson) {
+            console.log(JSON.stringify(myJson));
+        });
 }
 
 // 5056103943636043675
