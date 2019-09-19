@@ -6,7 +6,7 @@ function findPhotos() {
 
     document.querySelector('head').appendChild(script);
     getToken();
-    // boardSearch();
+    // boardSearch(); 
 }
 
 function jsonFlickrFeed(data) {
