@@ -39,7 +39,7 @@ function findPhotos() {
         console.log(JSON.stringify(response));
            alert('success');
             console.log(PDK.getSession().accessToken);
-            console.log(response);
+            // console.log(response);
 
             var url = $( "#result" ).load( "https://api.pinterest.com/v1/boards/board/"+document.getElementById("parameters").value+"/?access_token="+PDK.getSession().accessToken+"&fields=name%2Curl" );
             console.log(url);
