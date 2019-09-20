@@ -98,7 +98,7 @@ function jsonFlickrFeed(data) {
 // 5056103943636043675
 // Secret: 488e7944aa97f580cd72f575c2aeafaa254a6623f8c9e6984c5ae86d0a0e1f21
 
-boards.id[0].
+// boards.id[0].
 
 // `<a href="${boards.id[0].url}">${boards.id[0].name}</a>`
 
