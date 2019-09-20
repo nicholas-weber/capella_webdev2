@@ -31,7 +31,7 @@ function findPhotos() {
     });
 
     //get board info
-    var pins = [];
+    // var pins = [];
     PDK.request('/v1/me/', function (response) {
       if (!response || response.error) {
         alert('Error occurred');
@@ -41,8 +41,8 @@ function findPhotos() {
             console.log(PDK.getSession().accessToken);
             console.log(response);
 
-            var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
-            console.log(yahoo);
+            var url = $( "#result" ).load( "https://api.pinterest.com/v1/boards/board/?access_token="+PDK.getSession().accessToken+"&fields=name%2Curl" );
+            console.log(url);
       }
     });
 }
