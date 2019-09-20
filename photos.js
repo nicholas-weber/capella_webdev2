@@ -5,13 +5,10 @@ function findPhotos() {
         + document.getElementById("parameters").value;
 
     document.querySelector('head').appendChild(script);
-    // getToken();
-
     PDK.init({
-        appId: "5056103943636043675", // Change this
+        appId: "5056103943636043675",
         cookie: true
     });
-    
     PDK.login({ scope : 'read_relationships,read_public' }, function(response){
         if (!response || response.error) {
            alert('Error occurred');
@@ -20,18 +17,18 @@ function findPhotos() {
         }
     });
 
-    // var boards = [];
-    // PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
-    //     console.log(response);
-    //     if (!response || response.error) {
-    //         alert('Error occurred');
-    //     } else {
-    //         boards = boards.concat(response.data);
-    //         if (response.hasNext) {
-    //             response.next(); // this will recursively go to this same callback
-    //         }
-    //     }
-    // });
+    var boards = [];
+    PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
+        console.log(response);
+        if (!response || response.error) {
+            alert('Error occurred');
+        } else {
+            boards = boards.concat(response.data);
+            if (response.hasNext) {
+                response.next(); // this will recursively go to this same callback
+            }
+        }
+    });
 
     //get board info
     var pins = [];
@@ -42,14 +39,12 @@ function findPhotos() {
         console.log(JSON.stringify(response));
            alert('success');
             console.log(PDK.getSession().accessToken);
+            console.log(response);
 
             var yahoo = $( "#result" ).load( "https://api.pinterest.com/v1/me/?access_token="+PDK.getSession().accessToken+"&fields=counts" );
             console.log(yahoo);
-            // PDK.logout();
       }
     });
-
-    // boardSearch();
 }
 
 function jsonFlickrFeed(data) {
