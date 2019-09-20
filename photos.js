@@ -33,7 +33,7 @@ function findPhotos() {
                 boardString = `
                 <tr>
                     <td>
-                        <a href="${boards[i].id.url}">${boards[i].id.name}</a>
+                        <a href="${boards[i].url}">${boards[i].name}</a>
                     </td>
                 </tr>
                 `
