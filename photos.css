@@ -26,3 +26,14 @@ p {
     justify-content: center;
     align-items: center;
 }
+
+#flickr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#flickr img {
+    margin: .5rem;
+    align-self: flex-end;
+}
