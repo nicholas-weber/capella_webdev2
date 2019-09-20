@@ -24,7 +24,7 @@ function findPhotos() {
         if (!response || response.error) {
             // alert('Error occurred');
         } else {
-            var boards = boards.concat(response.data);
+            var boards = response.data;
             // if (response.hasNext) {
             //     response.next(); // this will recursively go to this same callback
             // }
