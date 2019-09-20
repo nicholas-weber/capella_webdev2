@@ -12,6 +12,7 @@
 <body onload="onLoad()">
     <span id="nav"></span>
     <main>
+        <h1>Photos</h1>
         <p>
             Input your parameters to receive see relevant photos from Flickr,
             as well as a list of Pinterest boards.
@@ -25,18 +26,20 @@
     </main>
     <script src="photos.js"></script>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
-    window.pAsyncInit = function() {
-        
+    window.pAsyncInit = function () {
+
     }
-        
-    (function(d, s, id){
-        var js, pjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://assets.pinterest.com/sdk/sdk.js";
-        pjs.parentNode.insertBefore(js, pjs);
-    }(document, 'script', 'pinterest-jssdk'));
+
+        (function (d, s, id) {
+            var js, pjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://assets.pinterest.com/sdk/sdk.js";
+            pjs.parentNode.insertBefore(js, pjs);
+        }(document, 'script', 'pinterest-jssdk'));
 </script>
 
 </html>
