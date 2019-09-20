@@ -9,11 +9,11 @@ function findPhotos() {
         appId: "5056103943636043675",
         cookie: true
     });
-    PDK.login({ scope: 'read_relationships,read_public' }, function (response) {
+    PDK.login({ scope : 'read_relationships,read_public' }, function(response){
         if (!response || response.error) {
-            alert('Error occurred');
+           alert('Error occurred');
         } else {
-            console.log(JSON.stringify(response));
+           console.log(JSON.stringify(response));
         }
     });
 
@@ -31,19 +31,19 @@ function findPhotos() {
     });
 
     //get board info
-    // var pins = [];
+    var pins = [];
     PDK.request('/v1/me/', function (response) {
-        if (!response || response.error) {
-            alert('Error occurred');
-        } else {
-            console.log(JSON.stringify(response));
-            alert('success');
+      if (!response || response.error) {
+        alert('Error occurred');
+      } else {
+        console.log(JSON.stringify(response));
+           alert('success');
             console.log(PDK.getSession().accessToken);
             console.log(response);
 
-            var url = $("#result").load("https://api.pinterest.com/v1/boards/board/" + document.getElementById("parameters").value + "/?access_token=" + PDK.getSession().accessToken + "&fields=name%2Curl");
-            console.log(url);
-        }
+            var call = $("#result").load("https://api.pinterest.com/v1/boards/board/" + document.getElementById("parameters").value + "/?access_token=" + PDK.getSession().accessToken + "&fields=name%2Curl");
+            console.log(call);
+      }
     });
 }
 
