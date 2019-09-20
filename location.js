@@ -1,6 +1,23 @@
 var currentLocation;
-var radius;
+var stores;
 var storeList;
+var storeList = document.getElementById("storeList");
+
+var radiusElement = document.getElementById("radius");
+var radius = radiusElement.value;
+
+function onPageLoad() {
+    document.getElementById("nav").innerHTML = navigationHTML;
+    radius = parseInt(localStorage.getItem("radius"));
+    stores = localStorage.getItem("stores");
+
+    if (radius && stores) {
+        storeList.innerHTML = stores;
+        radiusElement.value = radius;
+    } else {
+        stores = "";
+    }
+}
 
 function getLocation() {
     navigator.geolocation.getCurrentPosition(showElectronicsStores);
@@ -8,12 +25,12 @@ function getLocation() {
 
 function showElectronicsStores(position) {
     currentLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
-    radius = document.getElementById("radius").value * 1500;
-    storeList = document.getElementById("storeList");
+    localStorage.setItem("radius", radius);
+    stores = "";
 
     var request = {
         location: currentLocation,
-        radius,
+        radius: radius * 1500,
         type: ['electronics_store']
     };
     var map = new google.maps.Map(
@@ -22,7 +39,6 @@ function showElectronicsStores(position) {
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, (results, status) => {
         var store;
-        var stores = "";
         console.log(results);
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
@@ -39,6 +55,7 @@ function showElectronicsStores(position) {
                 stores = stores + store;
             }
             storeList.innerHTML = stores;
+            localStorage.setItem("stores", stores);
         }
     });
 }
