@@ -1,4 +1,4 @@
-function findPhotos() {
+function findInterests() {
     var script = document.createElement('script');
 
     script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags="
@@ -33,7 +33,7 @@ function findPhotos() {
                 boardString = `
                 <tr>
                     <td>
-                        <a href="${boards[i].url}">${boards[i].name}</a>
+                        <a target="_blank" href="${boards[i].url}">${boards[i].name}</a>
                     </td>
                 </tr>
                 `

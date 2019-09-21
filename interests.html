@@ -5,27 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="photos.css">
+    <link rel="stylesheet" href="interests.css">
     <script src="scripts.js"></script>
 </head>
 
 <body onload="onLoad()">
     <span id="nav"></span>
     <main>
-        <h1>Photos</h1>
+        <h1>Interests</h1>
         <p>
-            Input your parameters to receive see relevant photos from Flickr,
+            Input your parameters to receive see relevant interests from Flickr,
             as well as a list of Pinterest boards.
         </p>
         <div id="photo-search">
             <label>Parameters</label>
             <input name="parameters" id="parameters" type="text">
-            <button onclick="findPhotos()">&#128269;</button>
+            <button onclick="findInterests()">&#128269;</button>
         </div>
         <div id="flickr"></div>
         <table id="pinterest"></table>
     </main>
-    <script src="photos.js"></script>
+    <script src="interests.js"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

@@ -2,7 +2,7 @@ var navigationHTML = `
   <nav>
     <h2>Smart <span>Home</span></h2>
     <a href="index.html">Geolocation</a>
-    <a href="photos.html">Photos</a>
+    <a href="interests.html">Interests</a>
   </nav>
 `;
 
