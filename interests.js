@@ -1,33 +1,29 @@
 function findInterests() {
     var script = document.createElement('script');
-
     script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags="
         + document.getElementById("parameters").value;
-
     document.querySelector('head').appendChild(script);
+
     PDK.init({
         appId: "5056103943636043675",
         cookie: true
     });
     PDK.login({ scope: 'read_relationships,read_public' }, function (response) {
         if (!response || response.error) {
-            alert('Error occurred');
+            // alert('Error occurred');
         } else {
-            console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
         }
     });
 
     var boardListString = "";
     var boardString = "";
-    PDK.request('/v1/me/boards/', function (response) { // Make sure to change the board_id
+    PDK.request('/v1/me/boards/', function (response) {
         console.log(response);
         if (!response || response.error) {
             // alert('Error occurred');
         } else {
             var boards = response.data;
-            // if (response.hasNext) {
-            //     response.next(); // this will recursively go to this same callback
-            // }
             for (var i = 0; i < boards.length; i++) {
                 var board = boards[i];
                 boardString = `
