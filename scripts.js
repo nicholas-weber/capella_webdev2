@@ -1,4 +1,5 @@
-var navigationHTML = `
+var navigationHTML = 
+`
   <nav>
     <h2>Smart <span>Home</span></h2>
     <a href="https://nikkoweber.github.io/capella_web_application_dev2/index.html">Geolocation</a>
