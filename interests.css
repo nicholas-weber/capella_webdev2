@@ -33,6 +33,16 @@ p {
     justify-content: center;
 }
 
+@media screen and (max-width: 600px) {
+    #flickr {
+        flex-direction: column;
+    }
+
+    #flickr-img {
+        align-self: center;
+    }
+}
+
 #flickr img {
     margin: .5rem;
     align-self: flex-end;
