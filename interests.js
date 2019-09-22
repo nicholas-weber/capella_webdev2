@@ -1,8 +1,38 @@
+var parameters = document.getElementById("parameters");
+var parametersValue = parameters.value;
+
+function onLoad() {
+    document.getElementById("nav").innerHTML =
+        `
+        <nav>
+            <h2>Smart <span>Home</span></h2>
+            <a href="index.html">Geolocation</a>
+            <a href="interests.html">Interests</a>
+        </nav>
+    `;
+
+    parametersValue = localStorage.getItem("parametersValue");
+
+    if (parametersValue) {
+        parameters.value = parametersValue;
+        findInterests();
+    }
+}
+
 function findInterests() {
-    var script = document.createElement('script');
-    script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags="
-        + document.getElementById("parameters").value;
-    document.querySelector('head').appendChild(script);
+    var newValue = document.getElementById("parameters").value;
+
+    if (parametersValue != newValue) {
+        parametersValue = newValue;
+    }
+
+    if (parametersValue) {
+        var script = document.createElement('script');
+        script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags="
+            + parametersValue;
+        localStorage.setItem("parametersValue", parametersValue);
+        document.querySelector('head').appendChild(script);
+    }
 
     PDK.init({
         appId: "5056103943636043675",
@@ -44,8 +74,8 @@ function findInterests() {
 function jsonFlickrFeed(data) {
     var image = "";
     data.items.forEach(function (element) {
-        image += 
-        `
+        image +=
+            `
             <img src=" ${element.media.m} "/>
         `
     });
