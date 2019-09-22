@@ -12,10 +12,10 @@ function onLoad() {
         <nav>
             <h2>Smart <span>Home</span></h2>
             <a href="index.html">Geolocation</a>
-            <a href="interests.html">Interests</a>
+            <a href="interests.html">Gallery</a>
         </nav>
     `;
-    
+
     radius = parseInt(localStorage.getItem("radius"));
     stores = localStorage.getItem("stores");
     currentLocation = localStorage.getItem("currentLocation") ? JSON.parse(localStorage.getItem("currentLocation")) : "";
