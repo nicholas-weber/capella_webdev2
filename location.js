@@ -61,7 +61,7 @@ function showElectronicsStores(position) {
                 `
                     <tr>
                         <td>
-                            <a onclick="showDirections(${lat}, ${lng})">${place.name}</a>
+                            <a href="#" onclick="showDirections(${lat}, ${lng})">${place.name}</a>
                         </td>
                     </tr>
                 `
