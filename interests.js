@@ -6,8 +6,8 @@ function onLoad() {
         `
         <nav>
             <h2>Smart <span>Home</span></h2>
-            <a href="index.html">Geolocation</a>
-            <a href="interests.html">Gallery</a>
+            <a href="https://nikkoweber.github.io/smart_home/index.html">Geolocation</a>
+            <a href="https://nikkoweber.github.io/smart_home/interests.html">Gallery</a>
         </nav>
     `;
 
